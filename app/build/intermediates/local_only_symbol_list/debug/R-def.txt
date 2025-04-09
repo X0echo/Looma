@@ -80,6 +80,7 @@ menu menu_bottom_nav
 mipmap ic_launcher
 mipmap ic_launcher_round
 navigation nav_graph
+raw success
 string alt_bottom_sheet_chevron
 string alt_bottom_sheet_max_results_button_minus
 string alt_bottom_sheet_max_results_button_plus

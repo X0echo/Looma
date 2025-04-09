@@ -1,5 +1,5 @@
 package com.google.mediapipe.examples.gesturerecognizer
-
+import android.media.MediaPlayer
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -61,6 +61,14 @@ class ArabicNavbarView @JvmOverloads constructor(
         if (letter == currentLetter && confidence >= 0.9f) {
             adapter.markCurrentLetterSuccess()
             scrollToCurrent()
+            playSuccessSound()
+        }
+    }
+    private fun playSuccessSound() {
+        val mediaPlayer = MediaPlayer.create(context, R.raw.success)
+        mediaPlayer.start()
+        mediaPlayer.setOnCompletionListener {
+            it.release()
         }
     }
 }
