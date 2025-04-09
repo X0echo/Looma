@@ -54,7 +54,6 @@ id inference_time_val
 id letterBox
 id letterRecyclerView
 id nav_graph
-id navigation
 id overlay
 id permissions_fragment
 id presence_threshold_minus
@@ -69,7 +68,6 @@ id tracking_threshold_plus
 id tracking_threshold_value
 id tvLabel
 id tvScore
-id view
 id view_finder
 integer bottom_sheet_control_text_min_ems
 layout activity_main

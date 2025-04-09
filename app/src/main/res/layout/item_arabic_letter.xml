@@ -9,13 +9,15 @@
 
     <TextView
         android:id="@+id/letterBox"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:gravity="center"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:gravity="top|end"
+        android:padding="4dp"
         android:textSize="18sp"
         android:textStyle="bold"
         android:background="@drawable/letter_box_bg"
         android:textColor="#000"
         android:elevation="2dp" />
+
 
 </FrameLayout>
