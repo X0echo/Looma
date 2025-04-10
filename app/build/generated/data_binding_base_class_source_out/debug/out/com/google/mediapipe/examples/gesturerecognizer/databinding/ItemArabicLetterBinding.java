@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,9 +23,14 @@ public final class ItemArabicLetterBinding implements ViewBinding {
   @NonNull
   public final TextView letterBox;
 
-  private ItemArabicLetterBinding(@NonNull FrameLayout rootView, @NonNull TextView letterBox) {
+  @NonNull
+  public final ImageView letterImage;
+
+  private ItemArabicLetterBinding(@NonNull FrameLayout rootView, @NonNull TextView letterBox,
+      @NonNull ImageView letterImage) {
     this.rootView = rootView;
     this.letterBox = letterBox;
+    this.letterImage = letterImage;
   }
 
   @Override
@@ -60,7 +66,13 @@ public final class ItemArabicLetterBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemArabicLetterBinding((FrameLayout) rootView, letterBox);
+      id = R.id.letterImage;
+      ImageView letterImage = ViewBindings.findChildViewById(rootView, id);
+      if (letterImage == null) {
+        break missingId;
+      }
+
+      return new ItemArabicLetterBinding((FrameLayout) rootView, letterBox, letterImage);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

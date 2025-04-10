@@ -52,6 +52,7 @@
     <string name="label_hand_tracking_confidence_threshold">Tracking
         Threshold</string>
     <string name="label_inference_time">Inference Time</string>
+    <string name="letter_image_desc">Arabic letter image</string>
     <string name="media_pipe">MediaPipe</string>
     <string name="menu_camera">Camera</string>
     <string name="menu_gallery">Gallery</string>

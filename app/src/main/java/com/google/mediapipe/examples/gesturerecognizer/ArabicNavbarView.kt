@@ -22,7 +22,8 @@ class ArabicNavbarView @JvmOverloads constructor(
         "أ", "ب", "ت", "ث", "ج", "ح", "خ",
         "د", "ذ", "ر", "ز", "س", "ش", "ص",
         "ض", "ط", "ظ", "ع", "غ", "ف", "ق",
-        "ك", "ل", "م", "ن", "هـ", "و", "ي"
+        "ك", "ل", "م", "ن", "هـ", "و", "ي",
+        "لا"
     )
 
     init {
@@ -38,7 +39,6 @@ class ArabicNavbarView @JvmOverloads constructor(
         recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true)
         adapter = ArabicLetterAdapter(arabicLetterNames, 0)
         recyclerView.adapter = adapter
-        recyclerView.addItemDecoration(SpacingItemDecoration(16))
 
         // When skip is tapped, skip to the next letter and scroll the RecyclerView accordingly
         skipButton.setOnClickListener {
@@ -64,6 +64,7 @@ class ArabicNavbarView @JvmOverloads constructor(
             playSuccessSound()
         }
     }
+
     private fun playSuccessSound() {
         val mediaPlayer = MediaPlayer.create(context, R.raw.success)
         mediaPlayer.start()

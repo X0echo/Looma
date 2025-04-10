@@ -1,5 +1,6 @@
 package com.google.mediapipe.examples.gesturerecognizer
 
+import android.widget.ImageView
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ class ArabicLetterAdapter(
 
     inner class LetterViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val letterBox: TextView = view.findViewById(R.id.letterBox)
+        val letterImage: ImageView = view.findViewById(R.id.letterImage)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LetterViewHolder {
@@ -27,34 +29,72 @@ class ArabicLetterAdapter(
     private val successfulLetters = mutableSetOf<Int>()
 
     override fun onBindViewHolder(holder: LetterViewHolder, position: Int) {
+        // Bring ImageView to the front by setting elevation
+        holder.letterImage.apply {
+            elevation = 10f  // Elevation to bring the image to the front
+        }
+
         holder.letterBox.apply {
-            text = letterNames[position]  // Display the letter name (Alef, Beh, etc.)
+            val imageName = when (val name = letterNames[position]) {
+                "أ" -> "alef"
+                "ب" -> "baa"
+                "ت" -> "teh"
+                "ث" -> "theh"
+                "ج" -> "jeem"
+                "ح" -> "hah"
+                "خ" -> "khah"
+                "د" -> "dal"
+                "ذ" -> "thal"
+                "ر" -> "raa"
+                "ز" -> "zain"
+                "س" -> "seen"
+                "ش" -> "sheen"
+                "ص" -> "sad"
+                "ض" -> "dad"
+                "ط" -> "taa"
+                "ظ" -> "thad"
+                "ع" -> "ain"
+                "غ" -> "ghain"
+                "ف" -> "faa"
+                "ق" -> "qaf"
+                "ك" -> "kaf"
+                "ل" -> "lam"
+                "م" -> "meem"
+                "ن" -> "noon"
+                "هـ" -> "heh"
+                "و" -> "waw"
+                "ي" -> "yaa"
+                "لا" -> "laa"
+                else -> "placeholder" // Default case if something goes wrong
+            }
+
+            // Get the resource ID for the image
+            val resId = holder.itemView.context.resources.getIdentifier(imageName, "drawable", holder.itemView.context.packageName)
+
+            // Set the image resource if found
+            if (resId != 0) {
+                holder.letterImage.setImageResource(resId)
+            } else {
+                // If the resource is not found, set a placeholder image
+                holder.letterImage.setImageResource(R.drawable.placeholder_image) // Set a placeholder image
+            }
+
+            // Display the letter name
+            text = letterNames[position]
+
+            // Change the background and text color based on the current state
             if (position == currentIndex) {
                 setBackgroundResource(R.drawable.current_letter_bg) // Blue for current letter
                 textSize = 20f
                 setTextColor(Color.WHITE)
             } else if (position in successfulLetters) {
-
-                setBackgroundResource(R.drawable.success_letter_bg)  // Green for successful
+                setBackgroundResource(R.drawable.success_letter_bg)  // Green for successful recognition
                 setTextColor(Color.WHITE)
             } else {
                 setBackgroundResource(R.drawable.letter_box_bg)  // Default background
                 setTextColor(Color.WHITE)
                 textSize = 18f
             }
-        }
-    }
-
-    // Method to update the current gesture and confidence
-    fun updateCurrentGesture(currentLetter: String, confidence: Float) {
-        val letterIndex = letterNames.indexOf(currentLetter)
-        if (letterIndex != -1) {
-            currentIndex = letterIndex
-            // If the confidence is above a certain threshold, mark the letter as successful
-            if (confidence >= 0.7) {  // Example confidence threshold
-                markCurrentLetterSuccess()
-            }
-            notifyDataSetChanged()  // Refresh the RecyclerView
         }
     }
 
