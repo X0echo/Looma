@@ -96,12 +96,12 @@
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.9\\com.google.mediapipe.examples.gesturerecognizer.app-main-51:\\navigation\\nav_graph.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.9\\com.google.mediapipe.examples.gesturerecognizer.app-merged_res-49:\\layout_info_bottom_sheet.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.9\\com.google.mediapipe.examples.gesturerecognizer.app-main-51:\\layout\\info_bottom_sheet.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.9\\com.google.mediapipe.examples.gesturerecognizer.app-merged_res-49:\\drawable_success_letter_bg.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.9\\com.google.mediapipe.examples.gesturerecognizer.app-main-51:\\drawable\\success_letter_bg.xml"
     },
     {
-        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-49:/layout_fragment_camera.xml.flat",
-        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-51:/layout/fragment_camera.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.9\\com.google.mediapipe.examples.gesturerecognizer.app-merged_res-49:\\layout_info_bottom_sheet.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.9\\com.google.mediapipe.examples.gesturerecognizer.app-main-51:\\layout\\info_bottom_sheet.xml"
     },
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.9\\com.google.mediapipe.examples.gesturerecognizer.app-merged_res-49:\\layout_item_arabic_letter.xml.flat",
@@ -122,5 +122,9 @@
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.9\\com.google.mediapipe.examples.gesturerecognizer.app-merged_res-49:\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.9\\com.google.mediapipe.examples.gesturerecognizer.app-main-51:\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-49:/drawable_current_letter_bg.xml.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-51:/drawable/current_letter_bg.xml"
     }
 ]

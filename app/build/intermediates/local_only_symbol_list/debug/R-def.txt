@@ -37,7 +37,7 @@ drawable ic_plus
 drawable icn_chevron_up
 drawable letter_box_bg
 drawable media_pipe_banner
-drawable progress_bar
+drawable success_letter_bg
 id action_camera_to_permissions
 id action_permissions_to_camera
 id arabicNavbar

@@ -30,15 +30,16 @@ class ArabicLetterAdapter(
         holder.letterBox.apply {
             text = letterNames[position]  // Display the letter name (Alef, Beh, etc.)
             if (position == currentIndex) {
-                setBackgroundResource(android.R.color.holo_blue_light)  // Blue for current letter
+                setBackgroundResource(R.drawable.current_letter_bg) // Blue for current letter
                 textSize = 20f
                 setTextColor(Color.WHITE)
             } else if (position in successfulLetters) {
-                setBackgroundColor(Color.parseColor("#A5D6A7")) // Green for successful
-                setTextColor(Color.BLACK)
+
+                setBackgroundResource(R.drawable.success_letter_bg)  // Green for successful
+                setTextColor(Color.WHITE)
             } else {
                 setBackgroundResource(R.drawable.letter_box_bg)  // Default background
-                setTextColor(Color.BLACK)
+                setTextColor(Color.WHITE)
                 textSize = 18f
             }
         }
