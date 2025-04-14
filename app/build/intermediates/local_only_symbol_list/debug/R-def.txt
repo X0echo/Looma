@@ -32,6 +32,7 @@ drawable ain
 drawable al
 drawable alef
 drawable baa
+drawable button_rounded_bg
 drawable current_letter_bg
 drawable dad
 drawable dal
@@ -77,6 +78,7 @@ id arabicNavbarView
 id bottom_sheet_layout
 id camera_container
 id camera_fragment
+id challengesButton
 id detection_threshold_minus
 id detection_threshold_plus
 id detection_threshold_value
@@ -86,7 +88,10 @@ id inference_time_val
 id letterBox
 id letterImage
 id letterRecyclerView
+id lettersButton
+id main
 id nav_graph
+id numbersButton
 id overlay
 id permissions_fragment
 id presence_threshold_minus
@@ -96,6 +101,7 @@ id recyclerview_results
 id skipButton
 id spinner_delegate
 id toolbar
+id topSpacer
 id tracking_threshold_minus
 id tracking_threshold_plus
 id tracking_threshold_value
@@ -104,6 +110,7 @@ id tvScore
 id view_finder
 integer bottom_sheet_control_text_min_ems
 layout activity_main
+layout activity_practice
 layout arabic_navbar
 layout fragment_camera
 layout info_bottom_sheet

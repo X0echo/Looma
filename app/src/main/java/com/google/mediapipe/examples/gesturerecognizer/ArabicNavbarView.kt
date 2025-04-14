@@ -58,7 +58,7 @@ class ArabicNavbarView @JvmOverloads constructor(
     // Handle recognized letters: if recognized correctly, mark as success and scroll to next letter.
     fun onLetterRecognized(letter: String, confidence: Float) {
         val currentLetter = adapter.getCurrentLetter()
-        if (letter == currentLetter && confidence >= 0.9f) {
+        if (letter == currentLetter && confidence >= 0.8f) {
             adapter.markCurrentLetterSuccess()
             scrollToCurrent()
             playSuccessSound()
