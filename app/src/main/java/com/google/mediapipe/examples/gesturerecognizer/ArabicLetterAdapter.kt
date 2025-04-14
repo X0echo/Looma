@@ -36,7 +36,7 @@ class ArabicLetterAdapter(
 
         holder.letterBox.apply {
             val imageName = when (val name = letterNames[position]) {
-                "أ" -> "alef"
+                "ا" -> "alef"
                 "ب" -> "baa"
                 "ت" -> "teh"
                 "ث" -> "theh"
@@ -61,10 +61,11 @@ class ArabicLetterAdapter(
                 "ل" -> "lam"
                 "م" -> "meem"
                 "ن" -> "noon"
-                "هـ" -> "heh"
+                "ه" -> "heh"
                 "و" -> "waw"
                 "ي" -> "yaa"
                 "لا" -> "laa"
+                "ة" -> "teh_marbuta"
                 else -> "placeholder" // Default case if something goes wrong
             }
 

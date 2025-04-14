@@ -19,11 +19,11 @@ class ArabicNavbarView @JvmOverloads constructor(
 
     // Arabic letter names list
     private val arabicLetterNames = listOf(
-        "أ", "ب", "ت", "ث", "ج", "ح", "خ",
+        "ا", "ب", "ت", "ث", "ج", "ح", "خ",
         "د", "ذ", "ر", "ز", "س", "ش", "ص",
         "ض", "ط", "ظ", "ع", "غ", "ف", "ق",
-        "ك", "ل", "م", "ن", "هـ", "و", "ي",
-        "لا"
+        "ك", "ل", "م", "ن", "ه", "و", "ي",
+        "لا","ة","none"
     )
 
     init {
