@@ -17,6 +17,9 @@
         android:theme="@style/Theme.GestureRecognizer"
         tools:ignore="AllowBackup">
         <activity
+            android:name=".NumberMainActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity

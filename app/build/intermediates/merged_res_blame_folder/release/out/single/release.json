@@ -1,0 +1,266 @@
+[
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_thal.jpg.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/thal.jpg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/layout_fragment_camera.xml.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/layout/fragment_camera.xml"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_noon.jpeg.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/noon.jpeg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_media_pipe_banner.xml.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/media_pipe_banner.xml"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_al.jpg.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/al.jpg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_teh.jpeg.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/teh.jpeg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_placeholder_image.png.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/placeholder_image.png"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_ain.jpg.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/ain.jpg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_current_letter_bg.xml.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/current_letter_bg.xml"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_success_letter_bg.xml.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/success_letter_bg.xml"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_heh.jpg.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/heh.jpg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_ic_baseline_photo_camera_24.xml.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/ic_baseline_photo_camera_24.xml"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_lam.jpg.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/lam.jpg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_ic_minus.xml.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/ic_minus.xml"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_theh.jpeg.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/theh.jpeg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_baa.jpg.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/baa.jpg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_qaf.jpeg.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/qaf.jpeg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_waw.jpg.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/waw.jpg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_dal.jpeg.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/dal.jpeg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/layout_activity_practice.xml.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/layout/activity_practice.xml"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_faa.jpg.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/faa.jpg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/layout_fragment_number_camera.xml.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/layout/fragment_number_camera.xml"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/menu_menu_bottom_nav.xml.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/menu/menu_bottom_nav.xml"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_meem.jpg.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/meem.jpg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_ic_baseline_photo_library_24.xml.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/ic_baseline_photo_library_24.xml"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/layout_activity_number_main.xml.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/layout/activity_number_main.xml"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_dad.jpg.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/dad.jpg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/layout_item_gesture_recognizer_result.xml.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/layout/item_gesture_recognizer_result.xml"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_raa.jpeg.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/raa.jpeg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_ic_baseline_add_24.xml.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/ic_baseline_add_24.xml"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_khah.jpg.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/khah.jpg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_button_rounded_bg.xml.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/button_rounded_bg.xml"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_zain.jpg.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/zain.jpg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/layout_item_arabic_letter.xml.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/layout/item_arabic_letter.xml"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_laa.jpg.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/laa.jpg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_taa.jpg.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/taa.jpg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_yaa.jpg.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/yaa.jpg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/layout_activity_main.xml.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_seen.jpg.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/seen.jpg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/layout_info_bottom_sheet.xml.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/layout/info_bottom_sheet.xml"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_jeem.jpeg.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/jeem.jpeg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_icn_chevron_up.png.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/icn_chevron_up.png"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_kaf.jpeg.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/kaf.jpeg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/color_bg_nav_item.xml.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/color/bg_nav_item.xml"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_sheen.jpg.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/sheen.jpg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/navigation_nav_graph.xml.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/navigation/nav_graph.xml"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/layout_arabic_navbar.xml.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/layout/arabic_navbar.xml"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_ghain.jpeg.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/ghain.jpeg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_sad.jpg.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/sad.jpg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_ic_plus.xml.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/ic_plus.xml"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_teh_marbuta.jpg.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/teh_marbuta.jpg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_thad.jpeg.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/thad.jpeg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_hah.jpeg.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/hah.jpeg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_letter_box_bg.xml.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/letter_box_bg.xml"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/drawable_alef.jpg.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/drawable/alef.jpg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/raw_success.mp3.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/raw/success.mp3"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-54:/mipmap-xxxhdpi/ic_launcher_round.png"
+    }
+]

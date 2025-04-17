@@ -7,6 +7,9 @@ import android.widget.Button
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import android.os.Handler
+import android.os.Looper
+
 
 class ArabicNavbarView @JvmOverloads constructor(
     context: Context,
@@ -23,7 +26,7 @@ class ArabicNavbarView @JvmOverloads constructor(
         "د", "ذ", "ر", "ز", "س", "ش", "ص",
         "ض", "ط", "ظ", "ع", "غ", "ف", "ق",
         "ك", "ل", "م", "ن", "ه", "و", "ي",
-        "لا","ة","none"
+        "لا","ة","إ","ئ","ال","none"
     )
 
     init {
@@ -42,6 +45,7 @@ class ArabicNavbarView @JvmOverloads constructor(
 
         // When skip is tapped, skip to the next letter and scroll the RecyclerView accordingly
         skipButton.setOnClickListener {
+
             adapter.skipToNext()
             scrollToCurrent()
         }
@@ -62,6 +66,12 @@ class ArabicNavbarView @JvmOverloads constructor(
             adapter.markCurrentLetterSuccess()
             scrollToCurrent()
             playSuccessSound()
+            // Inside the onLetterRecognized method after the success is played
+            Handler(Looper.getMainLooper()).postDelayed({
+                adapter.skipToNext()
+                scrollToCurrent()
+            }, 1000)  // 1000 milliseconds = 1 second
+
         }
     }
 

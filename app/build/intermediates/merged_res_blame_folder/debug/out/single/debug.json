@@ -64,10 +64,6 @@
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-main-55:\\layout\\fragment_camera.xml"
     },
     {
-        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/layout_activity_practice.xml.flat",
-        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-55:/layout/activity_practice.xml"
-    },
-    {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:\\drawable_sheen.jpg.flat",
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-main-55:\\drawable\\sheen.jpg"
     },
@@ -96,6 +92,10 @@
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-main-55:\\drawable\\teh_marbuta.jpg"
     },
     {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:\\layout_fragment_number_camera.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-main-55:\\layout\\fragment_number_camera.xml"
+    },
+    {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:\\drawable_lam.jpg.flat",
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-main-55:\\drawable\\lam.jpg"
     },
@@ -104,16 +104,16 @@
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-main-55:\\drawable\\zain.jpg"
     },
     {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:\\drawable_success_letter_bg.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-main-55:\\drawable\\success_letter_bg.xml"
+    },
+    {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:\\drawable_teh.jpeg.flat",
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-main-55:\\drawable\\teh.jpeg"
     },
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:\\drawable_ain.jpg.flat",
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-main-55:\\drawable\\ain.jpg"
-    },
-    {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:\\drawable_success_letter_bg.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-main-55:\\drawable\\success_letter_bg.xml"
     },
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:\\mipmap-mdpi_ic_launcher_round.png.flat",
@@ -156,6 +156,10 @@
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-main-55:\\navigation\\nav_graph.xml"
     },
     {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/layout_item_arabic_letter.xml.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-55:/layout/item_arabic_letter.xml"
+    },
+    {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:\\drawable_waw.jpg.flat",
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-main-55:\\drawable\\waw.jpg"
     },
@@ -166,6 +170,10 @@
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:\\drawable_ghain.jpeg.flat",
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-main-55:\\drawable\\ghain.jpeg"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:\\layout_number_navbar.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-main-55:\\layout\\number_navbar.xml"
     },
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:\\drawable_raa.jpeg.flat",
@@ -202,6 +210,10 @@
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:\\drawable_icn_chevron_up.png.flat",
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-main-55:\\drawable\\icn_chevron_up.png"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:\\layout_activity_number_main.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-main-55:\\layout\\activity_number_main.xml"
     },
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:\\mipmap-xxxhdpi_ic_launcher.png.flat",
