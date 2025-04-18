@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class ArabicLetterAdapter(
-    private val letterNames: List<String>,  // This list now holds the letter names (Alef, Beh, etc.)
+    private val letterNames: List<String>,
     private var currentIndex: Int
 ) : RecyclerView.Adapter<ArabicLetterAdapter.LetterViewHolder>() {
 
@@ -29,13 +29,10 @@ class ArabicLetterAdapter(
     private val successfulLetters = mutableSetOf<Int>()
 
     override fun onBindViewHolder(holder: LetterViewHolder, position: Int) {
-        // Bring ImageView to the front by setting elevation
-        holder.letterImage.apply {
-            elevation = 10f  // Elevation to bring the image to the front
-        }
+        holder.letterImage.elevation = 10f
 
         holder.letterBox.apply {
-            val imageName = when (val name = letterNames[position]) {
+            val imageName = when (letterNames[position]) {
                 "ا" -> "alef"
                 "ب" -> "baa"
                 "ت" -> "teh"
@@ -66,46 +63,47 @@ class ArabicLetterAdapter(
                 "ي" -> "yaa"
                 "لا" -> "laa"
                 "ة" -> "teh_marbuta"
-                else -> "placeholder" // Default case if something goes wrong
+                else -> "placeholder"
             }
 
-            // Get the resource ID for the image
-            val resId = holder.itemView.context.resources.getIdentifier(imageName, "drawable", holder.itemView.context.packageName)
+            val resId = holder.itemView.context.resources.getIdentifier(
+                imageName,
+                "drawable",
+                holder.itemView.context.packageName
+            )
 
-            // Set the image resource if found
-            if (resId != 0) {
-                holder.letterImage.setImageResource(resId)
-            } else {
-                // If the resource is not found, set a placeholder image
-                holder.letterImage.setImageResource(R.drawable.placeholder_image) // Set a placeholder image
-            }
+            holder.letterImage.setImageResource(
+                if (resId != 0) resId else R.drawable.placeholder_image
+            )
 
-            // Display the letter name
             text = letterNames[position]
 
-            // Change the background and text color based on the current state
-            if (position == currentIndex) {
-                setBackgroundResource(R.drawable.current_letter_bg) // Blue for current letter
-                textSize = 20f
-                setTextColor(Color.WHITE)
-            } else if (position in successfulLetters) {
-                setBackgroundResource(R.drawable.success_letter_bg)  // Green for successful recognition
-                setTextColor(Color.WHITE)
-            } else {
-                setBackgroundResource(R.drawable.letter_box_bg)  // Default background
-                setTextColor(Color.WHITE)
-                textSize = 18f
+            when {
+                position == currentIndex -> {
+                    setBackgroundResource(R.drawable.current_letter_bg)
+                    textSize = 20f
+                    setTextColor(Color.WHITE)
+                }
+                position in successfulLetters -> {
+                    setBackgroundResource(R.drawable.success_letter_bg)
+                    setTextColor(Color.WHITE)
+                }
+                else -> {
+                    setBackgroundResource(R.drawable.letter_box_bg)
+                    setTextColor(Color.WHITE)
+                    textSize = 18f
+                }
             }
         }
     }
 
-    // Method to mark the current letter as successfully recognized
+    // Mark success WITHOUT auto-skipping
     fun markCurrentLetterSuccess() {
         successfulLetters.add(currentIndex)
-        skipToNext()  // Move to the next letter
+        notifyItemChanged(currentIndex)  // Update only current item
     }
 
-    // Skip to the next letter after success
+    // Skip externally controlled
     fun skipToNext() {
         if (currentIndex < letterNames.size - 1) {
             currentIndex++
@@ -113,9 +111,6 @@ class ArabicLetterAdapter(
         }
     }
 
-    // Get the current letter based on the index
     fun getCurrentLetter(): String = letterNames[currentIndex]
-
-    // Get the current index of the letter being shown
     fun getCurrentIndex(): Int = currentIndex
 }

@@ -20,11 +20,15 @@ class NumberNavbarView @JvmOverloads constructor(
     private lateinit var skipButton: Button
     private lateinit var adapter: NumberAdapter
 
-    // Number list: 0–10, 20, 30, ..., 100
     private val numberList = listOf(
-        "ا", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+        "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
         "20", "30", "40", "50", "60", "70", "80", "90", "100"
+        ,"none"
     )
+
+    private val handler = Handler(Looper.getMainLooper())
+    private var skipRunnable: Runnable? = null
+    private var isSuccessHandled = false // Block duplicate recognitions
 
     init {
         initView()
@@ -40,7 +44,9 @@ class NumberNavbarView @JvmOverloads constructor(
         recyclerView.adapter = adapter
 
         skipButton.setOnClickListener {
+            cancelPendingSkip() // Cancel any scheduled skips
             adapter.skipToNext()
+            isSuccessHandled = false // Reset for new letter
             scrollToCurrent()
         }
     }
@@ -53,25 +59,36 @@ class NumberNavbarView @JvmOverloads constructor(
 
     fun onNumberRecognized(number: String, confidence: Float) {
         val current = adapter.getCurrentNumber()
-        if (number == current && confidence >= 0.8f) {
+
+        // Only process if not already handling a success
+        if (!isSuccessHandled && number == current && confidence >= 0.8f) {
+            isSuccessHandled = true
+            cancelPendingSkip()
             adapter.markCurrentNumberSuccess()
-            scrollToCurrent()
             playSuccessSound()
-            // Add this part after marking the current number as success and playing the sound
-            Handler(Looper.getMainLooper()).postDelayed({
-                adapter.skipToNext()
-                scrollToCurrent()
-            }, 1000)  // 1000 milliseconds = 1 second
+            scheduleSkipToNext()
+        }
+    }
 
+    private fun scheduleSkipToNext() {
+        skipRunnable = Runnable {
+            adapter.skipToNext()
+            isSuccessHandled = false // Allow new recognitions
+            scrollToCurrent()
+        }
+        handler.postDelayed(skipRunnable!!, 1000)
+    }
 
+    private fun cancelPendingSkip() {
+        skipRunnable?.let {
+            handler.removeCallbacks(it)
+            skipRunnable = null
         }
     }
 
     private fun playSuccessSound() {
         val mediaPlayer = MediaPlayer.create(context, R.raw.success)
         mediaPlayer.start()
-        mediaPlayer.setOnCompletionListener {
-            it.release()
-        }
+        mediaPlayer.setOnCompletionListener { it.release() }
     }
 }

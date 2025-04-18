@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:2:1-41:12
+ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:2:1-44:12
+INJECTED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:2:1-44:12
+INJECTED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:2:1-44:12
+INJECTED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:2:1-44:12
 MERGED from [androidx.databinding:viewbinding:8.2.0] C:\Users\User\.gradle\caches\transforms-3\9ba2f801834eb59eed118baa57530c89\transformed\viewbinding-8.2.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.navigation:navigation-common:2.7.7] C:\Users\User\.gradle\caches\transforms-3\108878642d67f77ed0847c6c3aeb777e\transformed\navigation-common-2.7.7\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-common-ktx:2.7.7] C:\Users\User\.gradle\caches\transforms-3\860bcba1bd45450fe39d8362af87dad1\transformed\navigation-common-ktx-2.7.7\AndroidManifest.xml:2:1-7:12
@@ -100,8 +100,8 @@ ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\Andr
 	android:name
 		ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:8:22-62
 application
-ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:10:5-39:19
-INJECTED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:10:5-39:19
+ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:10:5-42:19
+INJECTED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:10:5-42:19
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\User\.gradle\caches\transforms-3\67b4d7c29162376acdc4565c73a97f12\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\User\.gradle\caches\transforms-3\67b4d7c29162376acdc4565c73a97f12\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.window:window:1.2.0] C:\Users\User\.gradle\caches\transforms-3\c99e4274533ecedda7027450686496f0\transformed\window-1.2.0\AndroidManifest.xml:22:5-29:19
@@ -148,40 +148,46 @@ MERGED from [com.google.android.datatransport:transport-runtime:3.1.0] C:\Users\
 		ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:17:9-55
 	android:taskAffinity
 		ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:16:9-32
-activity#com.google.mediapipe.examples.gesturerecognizer.NumberMainActivity
+activity#com.google.mediapipe.examples.gesturerecognizer.ChallengesActivity
 ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:19:9-21:40
 	android:exported
 		ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:21:13-37
 	android:name
 		ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:20:13-47
-activity#com.google.mediapipe.examples.gesturerecognizer.MainActivity
+activity#com.google.mediapipe.examples.gesturerecognizer.NumberMainActivity
 ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:22:9-24:40
 	android:exported
 		ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:24:13-37
 	android:name
-		ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:23:13-41
-activity#com.google.mediapipe.examples.gesturerecognizer.PracticeActivity
-ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:25:9-38:20
+		ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:23:13-47
+activity#com.google.mediapipe.examples.gesturerecognizer.MainActivity
+ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:25:9-27:40
 	android:exported
-		ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:27:13-36
+		ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:27:13-37
 	android:name
-		ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:26:13-45
+		ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:26:13-41
+activity#com.google.mediapipe.examples.gesturerecognizer.PracticeActivity
+ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:28:9-41:20
+	android:exported
+		ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:30:13-36
+	android:name
+		ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:29:13-45
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:28:13-32:29
+ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:31:13-35:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:29:17-69
+ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:32:17-69
 	android:name
-		ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:29:25-66
+		ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:32:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:31:17-77
+ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:34:17-77
 	android:name
-		ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:31:27-74
+		ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:34:27-74
 meta-data#android.notch_support
-ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:35:13-37:40
+ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:38:13-40:40
 	android:value
-		ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:37:17-37
+		ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:40:17-37
 	android:name
-		ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:36:17-53
+		ADDED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml:39:17-53
 uses-sdk
 INJECTED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\User\AndroidStudioProjects\loomav1\android\app\src\main\AndroidManifest.xml

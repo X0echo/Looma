@@ -35,6 +35,9 @@
         android:testOnly="true"
         android:theme="@style/Theme.GestureRecognizer" >
         <activity
+            android:name="com.google.mediapipe.examples.gesturerecognizer.ChallengesActivity"
+            android:exported="false" />
+        <activity
             android:name="com.google.mediapipe.examples.gesturerecognizer.NumberMainActivity"
             android:exported="false" />
         <activity

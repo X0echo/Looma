@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class NumberAdapter(
-    private val numberList: List<String>,  // This list holds number strings like "0", "10", "20", etc.
+    private val numberList: List<String>,
     private var currentIndex: Int
 ) : RecyclerView.Adapter<NumberAdapter.NumberViewHolder>() {
 
@@ -32,7 +32,7 @@ class NumberAdapter(
         holder.numberImage.elevation = 10f
 
         holder.numberBox.apply {
-            val imageName = when (val number = numberList[position]) {
+            val imageName = when (numberList[position]) {
                 "0" -> "num_0"
                 "1" -> "num_1"
                 "2" -> "num_2"
@@ -60,32 +60,34 @@ class NumberAdapter(
                 imageName, "drawable", holder.itemView.context.packageName
             )
 
-            if (resId != 0) {
-                holder.numberImage.setImageResource(resId)
-            } else {
-                holder.numberImage.setImageResource(R.drawable.placeholder_image)
-            }
+            holder.numberImage.setImageResource(
+                if (resId != 0) resId else R.drawable.placeholder_image
+            )
 
             text = numberList[position]
 
-            if (position == currentIndex) {
-                setBackgroundResource(R.drawable.current_letter_bg)
-                textSize = 20f
-                setTextColor(Color.WHITE)
-            } else if (position in successfulNumbers) {
-                setBackgroundResource(R.drawable.success_letter_bg)
-                setTextColor(Color.WHITE)
-            } else {
-                setBackgroundResource(R.drawable.letter_box_bg)
-                setTextColor(Color.WHITE)
-                textSize = 18f
+            when {
+                position == currentIndex -> {
+                    setBackgroundResource(R.drawable.current_letter_bg)
+                    textSize = 20f
+                    setTextColor(Color.WHITE)
+                }
+                position in successfulNumbers -> {
+                    setBackgroundResource(R.drawable.success_letter_bg)
+                    setTextColor(Color.WHITE)
+                }
+                else -> {
+                    setBackgroundResource(R.drawable.letter_box_bg)
+                    setTextColor(Color.WHITE)
+                    textSize = 18f
+                }
             }
         }
     }
 
     fun markCurrentNumberSuccess() {
         successfulNumbers.add(currentIndex)
-        skipToNext()
+        notifyItemChanged(currentIndex)
     }
 
     fun skipToNext() {
@@ -96,6 +98,5 @@ class NumberAdapter(
     }
 
     fun getCurrentNumber(): String = numberList[currentIndex]
-
     fun getCurrentIndex(): Int = currentIndex
 }

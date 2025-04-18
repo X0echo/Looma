@@ -1,21 +1,7 @@
-/*
- * Copyright 2022 The TensorFlow Authors. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *             http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.google.mediapipe.examples.gesturerecognizer.fragment
 
 import com.google.mediapipe.examples.gesturerecognizer.NumberNavbarView
+import com.google.mediapipe.examples.gesturerecognizer.NumberRecognizerHelper // ✅ Updated import
 import android.annotation.SuppressLint
 import android.content.res.Configuration
 import android.os.Bundle
@@ -32,7 +18,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.mediapipe.examples.gesturerecognizer.GestureRecognizerHelper
 import com.google.mediapipe.examples.gesturerecognizer.MainViewModel
 import com.google.mediapipe.examples.gesturerecognizer.R
 import com.google.mediapipe.examples.gesturerecognizer.databinding.FragmentNumberCameraBinding
@@ -43,7 +28,7 @@ import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
 class NumberCameraFragment : Fragment(),
-    GestureRecognizerHelper.GestureRecognizerListener {
+    NumberRecognizerHelper.GestureRecognizerListener { // ✅ Updated interface
 
     companion object {
         private const val TAG = "Number gesture recognizer"
@@ -54,7 +39,7 @@ class NumberCameraFragment : Fragment(),
     private val fragmentCameraBinding
         get() = _fragmentCameraBinding!!
 
-    private lateinit var gestureRecognizerHelper: GestureRecognizerHelper
+    private lateinit var gestureRecognizerHelper: NumberRecognizerHelper // ✅ Updated helper
     private val viewModel: MainViewModel by activityViewModels()
     private var defaultNumResults = 1
     private val numberRecognizerResultAdapter: NumberRecognizerResultsAdapter by lazy {
@@ -78,7 +63,6 @@ class NumberCameraFragment : Fragment(),
                 requireActivity(), R.id.fragment_container
             ).navigate(R.id.action_number_camera_to_permissions)
         }
-
 
         backgroundExecutor.execute {
             if (gestureRecognizerHelper.isClosed()) {
@@ -135,7 +119,7 @@ class NumberCameraFragment : Fragment(),
         }
 
         backgroundExecutor.execute {
-            gestureRecognizerHelper = GestureRecognizerHelper(
+            gestureRecognizerHelper = NumberRecognizerHelper( // ✅ Updated helper class
                 context = requireContext(),
                 runningMode = RunningMode.LIVE_STREAM,
                 minHandDetectionConfidence = viewModel.currentMinHandDetectionConfidence,
@@ -295,7 +279,7 @@ class NumberCameraFragment : Fragment(),
             fragmentCameraBinding.viewFinder.display.rotation
     }
 
-    override fun onResults(resultBundle: GestureRecognizerHelper.ResultBundle) {
+    override fun onResults(resultBundle: NumberRecognizerHelper.ResultBundle) { // ✅ Updated bundle type
         activity?.runOnUiThread {
             if (_fragmentCameraBinding != null) {
                 val gestureCategories = resultBundle.results.first().gestures()
@@ -328,9 +312,9 @@ class NumberCameraFragment : Fragment(),
             Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()
             numberRecognizerResultAdapter.updateResults(emptyList())
 
-            if (errorCode == GestureRecognizerHelper.GPU_ERROR) {
+            if (errorCode == NumberRecognizerHelper.GPU_ERROR) { // ✅ Updated class name
                 fragmentCameraBinding.bottomSheetLayout.spinnerDelegate.setSelection(
-                    GestureRecognizerHelper.DELEGATE_CPU, false
+                    NumberRecognizerHelper.DELEGATE_CPU, false
                 )
             }
         }

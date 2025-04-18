@@ -3,6 +3,8 @@ package com.google.mediapipe.examples.gesturerecognizer
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Matrix
+import android.media.MediaMetadataRetriever
+import android.net.Uri
 import android.os.SystemClock
 import android.util.Log
 import androidx.annotation.VisibleForTesting
@@ -22,36 +24,29 @@ class NumberRecognizerHelper(
     var currentDelegate: Int = DELEGATE_CPU,
     var runningMode: RunningMode = RunningMode.IMAGE,
     val context: Context,
-    val numberRecognizerListener: NumberRecognizerListener? = null
+    val gestureRecognizerListener: GestureRecognizerListener? = null
 ) {
 
-    private var numberRecognizer: GestureRecognizer? = null
+    private var gestureRecognizer: GestureRecognizer? = null
 
     init {
-        setupNumberRecognizer()
+        setupGestureRecognizer()
     }
 
-    fun clearNumberRecognizer() {
-        numberRecognizer?.close()
-        numberRecognizer = null
+    fun clearGestureRecognizer() {
+        gestureRecognizer?.close()
+        gestureRecognizer = null
     }
 
-    // Initialize the number recognizer
-    fun setupNumberRecognizer() {
+    fun setupGestureRecognizer() {
         val baseOptionBuilder = BaseOptions.builder()
 
-        // Set the hardware delegate
         when (currentDelegate) {
-            DELEGATE_CPU -> {
-                baseOptionBuilder.setDelegate(Delegate.CPU)
-            }
-            DELEGATE_GPU -> {
-                baseOptionBuilder.setDelegate(Delegate.GPU)
-            }
+            DELEGATE_CPU -> baseOptionBuilder.setDelegate(Delegate.CPU)
+            DELEGATE_GPU -> baseOptionBuilder.setDelegate(Delegate.GPU)
         }
 
-        // Set the path for the number recognizer model
-        baseOptionBuilder.setModelAssetPath(MP_NUMBER_RECOGNIZER_TASK)
+        baseOptionBuilder.setModelAssetPath(MP_RECOGNIZER_TASK)
 
         try {
             val baseOptions = baseOptionBuilder.build()
@@ -68,23 +63,20 @@ class NumberRecognizerHelper(
                     .setResultListener(this::returnLivestreamResult)
                     .setErrorListener(this::returnLivestreamError)
             }
+
             val options = optionsBuilder.build()
-            numberRecognizer = GestureRecognizer.createFromOptions(context, options)
+            gestureRecognizer = GestureRecognizer.createFromOptions(context, options)
         } catch (e: IllegalStateException) {
-            numberRecognizerListener?.onError(
-                "Number recognizer failed to initialize. See error logs for details"
-            )
+            gestureRecognizerListener?.onError("Number recognizer failed to initialize. See error logs for details")
             Log.e(TAG, "MP Task Vision failed to load the task with error: ${e.message}")
         } catch (e: RuntimeException) {
-            numberRecognizerListener?.onError(
-                "Number recognizer failed to initialize. See error logs for details",
-                GPU_ERROR
+            gestureRecognizerListener?.onError(
+                "Number recognizer failed to initialize. See error logs for details", GPU_ERROR
             )
             Log.e(TAG, "MP Task Vision failed to load the task with error: ${e.message}")
         }
     }
 
-    // Convert the ImageProxy to MP Image and feed it to the number recognizer
     fun recognizeLiveStream(imageProxy: ImageProxy) {
         val frameTime = SystemClock.uptimeMillis()
 
@@ -100,87 +92,110 @@ class NumberRecognizerHelper(
         }
 
         val rotatedBitmap = Bitmap.createBitmap(
-            bitmapBuffer,
-            0,
-            0,
-            bitmapBuffer.width,
-            bitmapBuffer.height,
-            matrix,
-            true
+            bitmapBuffer, 0, 0, bitmapBuffer.width, bitmapBuffer.height, matrix, true
         )
 
         val mpImage = BitmapImageBuilder(rotatedBitmap).build()
-
         recognizeAsync(mpImage, frameTime)
     }
 
-    // Recognize the number asynchronously
     @VisibleForTesting
     fun recognizeAsync(mpImage: MPImage, frameTime: Long) {
-        numberRecognizer?.recognizeAsync(mpImage, frameTime)
+        gestureRecognizer?.recognizeAsync(mpImage, frameTime)
     }
 
-    // Process the result for live stream
+    fun recognizeVideoFile(videoUri: Uri, inferenceIntervalMs: Long): ResultBundle? {
+        if (runningMode != RunningMode.VIDEO) {
+            throw IllegalArgumentException("Attempting to call recognizeVideoFile while not using RunningMode.VIDEO")
+        }
+
+        val startTime = SystemClock.uptimeMillis()
+        var didErrorOccurred = false
+
+        val retriever = MediaMetadataRetriever()
+        retriever.setDataSource(context, videoUri)
+        val videoLengthMs = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)?.toLong()
+        val firstFrame = retriever.getFrameAtTime(0)
+        val width = firstFrame?.width
+        val height = firstFrame?.height
+
+        if ((videoLengthMs == null) || (width == null) || (height == null)) return null
+
+        val resultList = mutableListOf<GestureRecognizerResult>()
+        val numberOfFrameToRead = videoLengthMs.div(inferenceIntervalMs)
+
+        for (i in 0..numberOfFrameToRead) {
+            val timestampMs = i * inferenceIntervalMs
+
+            retriever.getFrameAtTime(timestampMs * 1000, MediaMetadataRetriever.OPTION_CLOSEST)
+                ?.let { frame ->
+                    val argb8888Frame = if (frame.config == Bitmap.Config.ARGB_8888) frame
+                    else frame.copy(Bitmap.Config.ARGB_8888, false)
+
+                    val mpImage = BitmapImageBuilder(argb8888Frame).build()
+                    gestureRecognizer?.recognizeForVideo(mpImage, timestampMs)
+                        ?.let { resultList.add(it) }
+                        ?: run {
+                            didErrorOccurred = true
+                            gestureRecognizerListener?.onError(
+                                "ResultBundle could not be returned in recognizeVideoFile"
+                            )
+                        }
+                }
+                ?: run {
+                    didErrorOccurred = true
+                    gestureRecognizerListener?.onError(
+                        "Frame at specified time could not be retrieved when recognition in video."
+                    )
+                }
+        }
+
+        retriever.release()
+        val inferenceTimePerFrameMs = (SystemClock.uptimeMillis() - startTime).div(numberOfFrameToRead)
+
+        return if (didErrorOccurred) null
+        else ResultBundle(resultList, inferenceTimePerFrameMs, height, width)
+    }
+
+    fun recognizeImage(image: Bitmap): ResultBundle? {
+        if (runningMode != RunningMode.IMAGE) {
+            throw IllegalArgumentException("Attempting to call detectImage while not using RunningMode.IMAGE")
+        }
+
+        val startTime = SystemClock.uptimeMillis()
+        val mpImage = BitmapImageBuilder(image).build()
+
+        gestureRecognizer?.recognize(mpImage)?.also { recognizerResult ->
+            val inferenceTimeMs = SystemClock.uptimeMillis() - startTime
+            return ResultBundle(
+                listOf(recognizerResult), inferenceTimeMs, image.height, image.width
+            )
+        }
+
+        gestureRecognizerListener?.onError("Number Recognizer failed to recognize.")
+        return null
+    }
+
+    fun isClosed(): Boolean {
+        return gestureRecognizer == null
+    }
+
     private fun returnLivestreamResult(result: GestureRecognizerResult, input: MPImage) {
         val finishTimeMs = SystemClock.uptimeMillis()
         val inferenceTime = finishTimeMs - result.timestampMs()
 
-        numberRecognizerListener?.onResults(
-            ResultBundle(
-                listOf(result),
-                inferenceTime,
-                input.height,
-                input.width
-            )
+        gestureRecognizerListener?.onResults(
+            ResultBundle(listOf(result), inferenceTime, input.height, input.width)
         )
     }
 
-    // Handle errors for live stream
     private fun returnLivestreamError(error: RuntimeException) {
-        numberRecognizerListener?.onError(
-            error.message ?: "An unknown error has occurred"
-        )
-    }
-
-    // Return the recognition result to the caller
-    fun recognizeImage(image: Bitmap): ResultBundle? {
-        if (runningMode != RunningMode.IMAGE) {
-            throw IllegalArgumentException(
-                "Attempting to call recognizeImage while not using RunningMode.IMAGE"
-            )
-        }
-
-        val startTime = SystemClock.uptimeMillis()
-
-        val mpImage = BitmapImageBuilder(image).build()
-
-        numberRecognizer?.recognize(mpImage)?.also { recognizerResult ->
-            val inferenceTimeMs = SystemClock.uptimeMillis() - startTime
-            return ResultBundle(
-                listOf(recognizerResult),
-                inferenceTimeMs,
-                image.height,
-                image.width
-            )
-        }
-
-        numberRecognizerListener?.onError("Number Recognizer failed to recognize.")
-        return null
-    }
-
-    // Check if the recognizer is closed
-    fun isClosed(): Boolean {
-        return numberRecognizer == null
-    }
-
-    // Set the minimum number recognition confidence
-    fun setMinNumberRecognitionConfidence(confidence: Float) {
-        this.minHandDetectionConfidence = confidence
+        gestureRecognizerListener?.onError(error.message ?: "An unknown error has occurred")
     }
 
     companion object {
-        private const val TAG = "NumberRecognizerHelper"
-        private const val MP_NUMBER_RECOGNIZER_TASK = "number_recognizer.task"
+        val TAG = "NumberRecognizerHelper ${this.hashCode()}"
+        private const val MP_RECOGNIZER_TASK = "numbers100.task" // Replace with your number task file if different
 
         const val DELEGATE_CPU = 0
         const val DELEGATE_GPU = 1
@@ -198,7 +213,7 @@ class NumberRecognizerHelper(
         val inputImageWidth: Int,
     )
 
-    interface NumberRecognizerListener {
+    interface GestureRecognizerListener {
         fun onError(error: String, errorCode: Int = OTHER_ERROR)
         fun onResults(resultBundle: ResultBundle)
     }
