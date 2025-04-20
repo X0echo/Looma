@@ -29,7 +29,8 @@ class PracticeActivity : AppCompatActivity() {
 
         // Challenges button: Start the ChallengesActivity (implement similarly if needed)
         challengesButton.setOnClickListener {
-            // TODO: Launch ChallengesActivity or similar
+            val intent = Intent(this, ChallengesActivity::class.java)
+            startActivity(intent)
         }
     }
 }

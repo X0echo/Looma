@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/challenges_nav_graph"
+    app:startDestination="@id/challenges_camera_fragment">
+
+    <!-- Permissions Fragment -->
+    <fragment
+        android:id="@+id/permissions_fragment"
+        android:name="com.google.mediapipe.examples.gesturerecognizer.fragment.PermissionsFragment"
+        android:label="PermissionsFragment">
+
+        <action
+            android:id="@+id/action_permissions_to_challenges_camera"
+            app:destination="@id/challenges_camera_fragment"
+            app:popUpTo="@id/permissions_fragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- Challenge Camera Fragment -->
+    <fragment
+        android:id="@+id/challenges_camera_fragment"
+        android:name="com.google.mediapipe.examples.gesturerecognizer.fragment.ChallengesCameraFragment"
+        android:label="ChallengesCameraFragment">
+
+        <action
+            android:id="@+id/action_to_permissions"
+            app:destination="@id/permissions_fragment"
+            app:popUpTo="@id/challenges_camera_fragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+</navigation>
