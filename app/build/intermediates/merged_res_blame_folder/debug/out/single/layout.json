@@ -20,12 +20,16 @@
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-main-55:\\layout\\item_challenge_letter.xml"
     },
     {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-mergeDebugResources-52:\\layout\\activity_challenges.xml",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-main-55:\\layout\\activity_challenges.xml"
+    },
+    {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-mergeDebugResources-52:\\layout\\item_arabic_letter.xml",
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-main-55:\\layout\\item_arabic_letter.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-mergeDebugResources-52:\\layout\\activity_challenges.xml",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-main-55:\\layout\\activity_challenges.xml"
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-mergeDebugResources-52:/layout/activity_number_main.xml",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-55:/layout/activity_number_main.xml"
     },
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-mergeDebugResources-52:\\layout\\number_navbar.xml",
@@ -40,12 +44,12 @@
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-main-55:\\layout\\activity_practice.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-mergeDebugResources-52:\\layout\\activity_main.xml",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-main-55:\\layout\\activity_main.xml"
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-mergeDebugResources-52:/layout/activity_main.xml",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-55:/layout/activity_main.xml"
     },
     {
-        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-mergeDebugResources-52:/layout/item_challenge_letter.xml",
-        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-55:/layout/item_challenge_letter.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-mergeDebugResources-52:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-main-55:\\layout\\activity_main.xml"
     },
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-mergeDebugResources-52:\\layout\\activity_number_main.xml",

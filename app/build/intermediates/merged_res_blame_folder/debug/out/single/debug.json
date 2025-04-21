@@ -8,10 +8,6 @@
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-main-55:\\drawable\\placeholder_image.png"
     },
     {
-        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/layout_item_challenge_letter.xml.flat",
-        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-55:/layout/item_challenge_letter.xml"
-    },
-    {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:\\drawable_thal.jpg.flat",
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-main-55:\\drawable\\thal.jpg"
     },
@@ -132,6 +128,10 @@
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-main-55:\\drawable\\kaf.jpeg"
     },
     {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/layout_activity_number_main.xml.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-55:/layout/activity_number_main.xml"
+    },
+    {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:\\drawable_letter_box_bg.xml.flat",
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-main-55:\\drawable\\letter_box_bg.xml"
     },
@@ -206,6 +206,10 @@
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:\\drawable_taa.jpg.flat",
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-main-55:\\drawable\\taa.jpg"
+    },
+    {
+        "merged": "com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:/layout_activity_main.xml.flat",
+        "source": "com.google.mediapipe.examples.gesturerecognizer.app-main-55:/layout/activity_main.xml"
     },
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.4\\com.google.mediapipe.examples.gesturerecognizer.app-merged_res-53:\\mipmap-hdpi_ic_launcher_round.png.flat",

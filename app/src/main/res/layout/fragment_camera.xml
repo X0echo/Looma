@@ -18,41 +18,33 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <!-- Arabic Navbar: placed after camera + overlay to appear ON TOP -->
+    <!-- Arabic Navbar (top) -->
     <com.google.mediapipe.examples.gesturerecognizer.ArabicNavbarView
         android:id="@+id/arabicNavbarView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
         android:background="@android:color/transparent"
-        android:paddingTop="16dp"
+        android:paddingTop="4dp"
         android:paddingBottom="8dp" />
 
-
-    <!-- Bottom sheet -->
-    <include
-        android:id="@+id/bottom_sheet_layout"
-        layout="@layout/info_bottom_sheet" />
-
-    <!-- Recognized results -->
+    <!-- Recognized results (bottom) -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_results"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="top"
+        android:layout_gravity="bottom"
         android:layout_marginBottom="@dimen/bottom_sheet_peek_height"
         android:background="@color/bottom_sheet_background"
         android:clipToPadding="true"
         android:padding="@dimen/bottom_sheet_padding"
-        app:layout_anchor="@id/bottom_sheet_layout"
-        app:layout_anchorGravity="top"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior" />
 
-    <!-- Divider -->
+    <!-- Divider (above RecyclerView) -->
     <View
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/mp_color_primary"
-        app:layout_anchor="@id/recyclerview_results"
-        app:layout_anchorGravity="bottom" />
+        android:layout_gravity="bottom"
+        android:background="@color/mp_color_primary" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

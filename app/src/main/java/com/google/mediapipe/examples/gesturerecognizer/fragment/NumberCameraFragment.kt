@@ -1,7 +1,7 @@
 package com.google.mediapipe.examples.gesturerecognizer.fragment
 
 import com.google.mediapipe.examples.gesturerecognizer.NumberNavbarView
-import com.google.mediapipe.examples.gesturerecognizer.NumberRecognizerHelper // ✅ Updated import
+import com.google.mediapipe.examples.gesturerecognizer.NumberRecognizerHelper
 import android.annotation.SuppressLint
 import android.content.res.Configuration
 import android.os.Bundle
@@ -9,7 +9,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.Toast
 import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
@@ -22,13 +21,12 @@ import com.google.mediapipe.examples.gesturerecognizer.MainViewModel
 import com.google.mediapipe.examples.gesturerecognizer.R
 import com.google.mediapipe.examples.gesturerecognizer.databinding.FragmentNumberCameraBinding
 import com.google.mediapipe.tasks.vision.core.RunningMode
-import java.util.*
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
 class NumberCameraFragment : Fragment(),
-    NumberRecognizerHelper.GestureRecognizerListener { // ✅ Updated interface
+    NumberRecognizerHelper.GestureRecognizerListener {
 
     companion object {
         private const val TAG = "Number gesture recognizer"
@@ -39,7 +37,7 @@ class NumberCameraFragment : Fragment(),
     private val fragmentCameraBinding
         get() = _fragmentCameraBinding!!
 
-    private lateinit var gestureRecognizerHelper: NumberRecognizerHelper // ✅ Updated helper
+    private lateinit var gestureRecognizerHelper: NumberRecognizerHelper
     private val viewModel: MainViewModel by activityViewModels()
     private var defaultNumResults = 1
     private val numberRecognizerResultAdapter: NumberRecognizerResultsAdapter by lazy {
@@ -100,7 +98,6 @@ class NumberCameraFragment : Fragment(),
     ): View {
         _fragmentCameraBinding =
             FragmentNumberCameraBinding.inflate(inflater, container, false)
-
         return fragmentCameraBinding.root
     }
 
@@ -119,7 +116,7 @@ class NumberCameraFragment : Fragment(),
         }
 
         backgroundExecutor.execute {
-            gestureRecognizerHelper = NumberRecognizerHelper( // ✅ Updated helper class
+            gestureRecognizerHelper = NumberRecognizerHelper(
                 context = requireContext(),
                 runningMode = RunningMode.LIVE_STREAM,
                 minHandDetectionConfidence = viewModel.currentMinHandDetectionConfidence,
@@ -129,96 +126,6 @@ class NumberCameraFragment : Fragment(),
                 gestureRecognizerListener = this
             )
         }
-
-        initBottomSheetControls()
-    }
-
-    private fun initBottomSheetControls() {
-        fragmentCameraBinding.bottomSheetLayout.detectionThresholdValue.text =
-            String.format(Locale.US, "%.2f", viewModel.currentMinHandDetectionConfidence)
-        fragmentCameraBinding.bottomSheetLayout.trackingThresholdValue.text =
-            String.format(Locale.US, "%.2f", viewModel.currentMinHandTrackingConfidence)
-        fragmentCameraBinding.bottomSheetLayout.presenceThresholdValue.text =
-            String.format(Locale.US, "%.2f", viewModel.currentMinHandPresenceConfidence)
-
-        fragmentCameraBinding.bottomSheetLayout.detectionThresholdMinus.setOnClickListener {
-            if (gestureRecognizerHelper.minHandDetectionConfidence >= 0.2) {
-                gestureRecognizerHelper.minHandDetectionConfidence -= 0.1f
-                updateControlsUi()
-            }
-        }
-
-        fragmentCameraBinding.bottomSheetLayout.detectionThresholdPlus.setOnClickListener {
-            if (gestureRecognizerHelper.minHandDetectionConfidence <= 0.8) {
-                gestureRecognizerHelper.minHandDetectionConfidence += 0.1f
-                updateControlsUi()
-            }
-        }
-
-        fragmentCameraBinding.bottomSheetLayout.trackingThresholdMinus.setOnClickListener {
-            if (gestureRecognizerHelper.minHandTrackingConfidence >= 0.2) {
-                gestureRecognizerHelper.minHandTrackingConfidence -= 0.1f
-                updateControlsUi()
-            }
-        }
-
-        fragmentCameraBinding.bottomSheetLayout.trackingThresholdPlus.setOnClickListener {
-            if (gestureRecognizerHelper.minHandTrackingConfidence <= 0.8) {
-                gestureRecognizerHelper.minHandTrackingConfidence += 0.1f
-                updateControlsUi()
-            }
-        }
-
-        fragmentCameraBinding.bottomSheetLayout.presenceThresholdMinus.setOnClickListener {
-            if (gestureRecognizerHelper.minHandPresenceConfidence >= 0.2) {
-                gestureRecognizerHelper.minHandPresenceConfidence -= 0.1f
-                updateControlsUi()
-            }
-        }
-
-        fragmentCameraBinding.bottomSheetLayout.presenceThresholdPlus.setOnClickListener {
-            if (gestureRecognizerHelper.minHandPresenceConfidence <= 0.8) {
-                gestureRecognizerHelper.minHandPresenceConfidence += 0.1f
-                updateControlsUi()
-            }
-        }
-
-        fragmentCameraBinding.bottomSheetLayout.spinnerDelegate.setSelection(
-            viewModel.currentDelegate, false
-        )
-        fragmentCameraBinding.bottomSheetLayout.spinnerDelegate.onItemSelectedListener =
-            object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(
-                    p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long
-                ) {
-                    try {
-                        gestureRecognizerHelper.currentDelegate = p2
-                        updateControlsUi()
-                    } catch (e: UninitializedPropertyAccessException) {
-                        Log.e(TAG, "GestureRecognizerHelper has not been initialized yet.")
-                    }
-                }
-
-                override fun onNothingSelected(p0: AdapterView<*>?) {
-                    /* no op */
-                }
-            }
-    }
-
-    private fun updateControlsUi() {
-        fragmentCameraBinding.bottomSheetLayout.detectionThresholdValue.text =
-            String.format(Locale.US, "%.2f", gestureRecognizerHelper.minHandDetectionConfidence)
-        fragmentCameraBinding.bottomSheetLayout.trackingThresholdValue.text =
-            String.format(Locale.US, "%.2f", gestureRecognizerHelper.minHandTrackingConfidence)
-        fragmentCameraBinding.bottomSheetLayout.presenceThresholdValue.text =
-            String.format(Locale.US, "%.2f", gestureRecognizerHelper.minHandPresenceConfidence)
-
-        backgroundExecutor.execute {
-            gestureRecognizerHelper.clearGestureRecognizer()
-            gestureRecognizerHelper.setupGestureRecognizer()
-        }
-
-        fragmentCameraBinding.overlay.clear()
     }
 
     private fun setUpCamera() {
@@ -260,7 +167,6 @@ class NumberCameraFragment : Fragment(),
             camera = cameraProvider.bindToLifecycle(
                 this, cameraSelector, preview, imageAnalyzer
             )
-
             preview?.setSurfaceProvider(fragmentCameraBinding.viewFinder.surfaceProvider)
         } catch (exc: Exception) {
             Log.e(TAG, "Use case binding failed", exc)
@@ -279,21 +185,17 @@ class NumberCameraFragment : Fragment(),
             fragmentCameraBinding.viewFinder.display.rotation
     }
 
-    override fun onResults(resultBundle: NumberRecognizerHelper.ResultBundle) { // ✅ Updated bundle type
+    override fun onResults(resultBundle: NumberRecognizerHelper.ResultBundle) {
         activity?.runOnUiThread {
             if (_fragmentCameraBinding != null) {
                 val gestureCategories = resultBundle.results.first().gestures()
                 if (gestureCategories.isNotEmpty()) {
                     numberRecognizerResultAdapter.updateResults(gestureCategories.first())
-
                     val (recognizedNumber, confidence) = numberRecognizerResultAdapter.getCurrentNumberAndScore(0)
                     fragmentCameraBinding.NumberNavBarView.onNumberRecognized(recognizedNumber ?: "", confidence ?: 0f)
                 } else {
                     numberRecognizerResultAdapter.updateResults(emptyList())
                 }
-
-                fragmentCameraBinding.bottomSheetLayout.inferenceTimeVal.text =
-                    String.format("%d ms", resultBundle.inferenceTime)
 
                 fragmentCameraBinding.overlay.setResults(
                     resultBundle.results.first(),
@@ -311,12 +213,6 @@ class NumberCameraFragment : Fragment(),
         activity?.runOnUiThread {
             Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()
             numberRecognizerResultAdapter.updateResults(emptyList())
-
-            if (errorCode == NumberRecognizerHelper.GPU_ERROR) { // ✅ Updated class name
-                fragmentCameraBinding.bottomSheetLayout.spinnerDelegate.setSelection(
-                    NumberRecognizerHelper.DELEGATE_CPU, false
-                )
-            }
         }
     }
 }

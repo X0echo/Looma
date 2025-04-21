@@ -81,7 +81,6 @@ id action_permissions_to_number_camera
 id action_to_permissions
 id arabicNavbar
 id arabicNavbarView
-id bottom_sheet_layout
 id btnSkipChallenge
 id camera_container
 id camera_fragment
@@ -93,12 +92,7 @@ id challengesButton
 id challengesNavbarView
 id challenges_camera_fragment
 id challenges_nav_graph
-id detection_threshold_minus
-id detection_threshold_plus
-id detection_threshold_value
 id fragment_container
-id inference_time_label
-id inference_time_val
 id letterBox
 id letterImage
 id letterRecyclerView
@@ -112,17 +106,9 @@ id number_permissions_fragment
 id numbersButton
 id overlay
 id permissions_fragment
-id presence_threshold_minus
-id presence_threshold_plus
-id presence_threshold_value
 id recyclerview_results
 id skipButton
-id spinner_delegate
-id toolbar
 id topSpacer
-id tracking_threshold_minus
-id tracking_threshold_plus
-id tracking_threshold_value
 id tvLabel
 id tvScore
 id view_finder
@@ -136,7 +122,6 @@ layout challenge_navbar
 layout fragment_camera
 layout fragment_challenge_camera
 layout fragment_number_camera
-layout info_bottom_sheet
 layout item_arabic_letter
 layout item_challenge_letter
 layout item_gesture_recognizer_result

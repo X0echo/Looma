@@ -30,7 +30,7 @@ class ArabicNavbarView @JvmOverloads constructor(
 
     private val handler = Handler(Looper.getMainLooper())
     private var skipRunnable: Runnable? = null
-    private var isSuccessHandled = false // Block duplicate recognitions
+    private var isSuccessHandled = false
 
     init {
         initView()
@@ -42,27 +42,44 @@ class ArabicNavbarView @JvmOverloads constructor(
         skipButton = findViewById(R.id.skipButton)
 
         recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true)
-        adapter = ArabicLetterAdapter(arabicLetterNames, 0)
-        recyclerView.adapter = adapter
+        setupAdapter(0)
 
         skipButton.setOnClickListener {
-            cancelPendingSkip() // Cancel any scheduled skips
-            adapter.skipToNext()
-            isSuccessHandled = false // Reset for new letter
+            cancelPendingSkip()
+            if (isLastLetter()) {
+                setupAdapter(0)
+                skipButton.text = "تخطي"  // Arabic for "Skip"
+            } else {
+                adapter.skipToNext()
+                updateSkipButtonText()
+            }
+            isSuccessHandled = false
             scrollToCurrent()
         }
+    }
+
+    private fun setupAdapter(startIndex: Int) {
+        adapter = ArabicLetterAdapter(arabicLetterNames, startIndex)
+        recyclerView.adapter = adapter
+        updateSkipButtonText()
     }
 
     private fun scrollToCurrent() {
         recyclerView.smoothScrollToPosition(adapter.getCurrentIndex())
     }
 
+    private fun getCurrentIndex(): Int = arabicLetterNames.indexOf(adapter.getCurrentLetter())
+
+    private fun isLastLetter(): Boolean = getCurrentIndex() == arabicLetterNames.size - 1
+
+    private fun updateSkipButtonText() {
+        skipButton.text = if (isLastLetter()) "اعادة المحاوله" else "تخطي"  // "Redo" : "Skip"
+    }
+
     fun getCurrentLetter(): String = adapter.getCurrentLetter()
 
     fun onLetterRecognized(letter: String, confidence: Float) {
         val currentLetter = adapter.getCurrentLetter()
-
-        // Only process if not already handling a success
         if (!isSuccessHandled && letter == currentLetter && confidence >= 0.8f) {
             isSuccessHandled = true
             cancelPendingSkip()
@@ -75,8 +92,9 @@ class ArabicNavbarView @JvmOverloads constructor(
     private fun scheduleSkipToNext() {
         skipRunnable = Runnable {
             adapter.skipToNext()
-            isSuccessHandled = false // Allow new recognitions
+            isSuccessHandled = false
             scrollToCurrent()
+            updateSkipButtonText()
         }
         handler.postDelayed(skipRunnable!!, 1000)
     }

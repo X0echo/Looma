@@ -17,18 +17,17 @@ class NumberNavbarView @JvmOverloads constructor(
 ) : LinearLayout(context, attrs) {
 
     private lateinit var recyclerView: RecyclerView
-    private lateinit var skipButton: Button
+    private lateinit var actionButton: Button
     private lateinit var adapter: NumberAdapter
 
     private val numberList = listOf(
         "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
-        "20", "30", "40", "50", "60", "70", "80", "90", "100"
-        ,"none"
+        "20", "30", "40", "50", "60", "70", "80", "90", "100", "none"
     )
 
     private val handler = Handler(Looper.getMainLooper())
     private var skipRunnable: Runnable? = null
-    private var isSuccessHandled = false // Block duplicate recognitions
+    private var isSuccessHandled = false
 
     init {
         initView()
@@ -37,22 +36,40 @@ class NumberNavbarView @JvmOverloads constructor(
     private fun initView() {
         LayoutInflater.from(context).inflate(R.layout.number_navbar, this, true)
         recyclerView = findViewById(R.id.letterRecyclerView)
-        skipButton = findViewById(R.id.skipButton)
+        actionButton = findViewById(R.id.skipButton)
 
         recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true)
-        adapter = NumberAdapter(numberList, 0)
-        recyclerView.adapter = adapter
+        setupAdapter(0)
+        updateButtonText()
 
-        skipButton.setOnClickListener {
-            cancelPendingSkip() // Cancel any scheduled skips
-            adapter.skipToNext()
-            isSuccessHandled = false // Reset for new letter
+        actionButton.setOnClickListener {
+            cancelPendingSkip()
+            if (isLastNumber()) {
+                setupAdapter(0)
+                actionButton.text = "تخطي" // Arabic for "Skip"
+            } else {
+                adapter.skipToNext()
+                updateButtonText()
+            }
+            isSuccessHandled = false
             scrollToCurrent()
         }
     }
 
+    private fun setupAdapter(startIndex: Int) {
+        adapter = NumberAdapter(numberList, startIndex)
+        recyclerView.adapter = adapter
+        updateButtonText()
+    }
+
     private fun scrollToCurrent() {
         recyclerView.smoothScrollToPosition(adapter.getCurrentIndex())
+    }
+
+    private fun isLastNumber(): Boolean = adapter.getCurrentIndex() == numberList.lastIndex
+
+    private fun updateButtonText() {
+        actionButton.text = if (isLastNumber()) "اعادة المحاوله" else "تخطي" // "Redo" : "Skip"
     }
 
     fun getCurrentNumber(): String = adapter.getCurrentNumber()
@@ -60,7 +77,6 @@ class NumberNavbarView @JvmOverloads constructor(
     fun onNumberRecognized(number: String, confidence: Float) {
         val current = adapter.getCurrentNumber()
 
-        // Only process if not already handling a success
         if (!isSuccessHandled && number == current && confidence >= 0.8f) {
             isSuccessHandled = true
             cancelPendingSkip()
@@ -73,8 +89,9 @@ class NumberNavbarView @JvmOverloads constructor(
     private fun scheduleSkipToNext() {
         skipRunnable = Runnable {
             adapter.skipToNext()
-            isSuccessHandled = false // Allow new recognitions
+            isSuccessHandled = false
             scrollToCurrent()
+            updateButtonText() // Update button after auto-skip
         }
         handler.postDelayed(skipRunnable!!, 1000)
     }

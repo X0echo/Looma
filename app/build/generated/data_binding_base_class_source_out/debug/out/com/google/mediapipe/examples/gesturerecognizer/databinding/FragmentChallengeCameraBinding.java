@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.camera.view.PreviewView;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.google.mediapipe.examples.gesturerecognizer.ChallengesNavbarView;
@@ -31,16 +32,20 @@ public final class FragmentChallengeCameraBinding implements ViewBinding {
   public final OverlayView overlay;
 
   @NonNull
+  public final RecyclerView recyclerviewResults;
+
+  @NonNull
   public final PreviewView viewFinder;
 
   private FragmentChallengeCameraBinding(@NonNull CoordinatorLayout rootView,
       @NonNull CoordinatorLayout challengeContainer,
       @NonNull ChallengesNavbarView challengesNavbarView, @NonNull OverlayView overlay,
-      @NonNull PreviewView viewFinder) {
+      @NonNull RecyclerView recyclerviewResults, @NonNull PreviewView viewFinder) {
     this.rootView = rootView;
     this.challengeContainer = challengeContainer;
     this.challengesNavbarView = challengesNavbarView;
     this.overlay = overlay;
+    this.recyclerviewResults = recyclerviewResults;
     this.viewFinder = viewFinder;
   }
 
@@ -85,6 +90,12 @@ public final class FragmentChallengeCameraBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.recyclerview_results;
+      RecyclerView recyclerviewResults = ViewBindings.findChildViewById(rootView, id);
+      if (recyclerviewResults == null) {
+        break missingId;
+      }
+
       id = R.id.view_finder;
       PreviewView viewFinder = ViewBindings.findChildViewById(rootView, id);
       if (viewFinder == null) {
@@ -92,7 +103,7 @@ public final class FragmentChallengeCameraBinding implements ViewBinding {
       }
 
       return new FragmentChallengeCameraBinding((CoordinatorLayout) rootView, challengeContainer,
-          challengesNavbarView, overlay, viewFinder);
+          challengesNavbarView, overlay, recyclerviewResults, viewFinder);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
